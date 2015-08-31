@@ -77,7 +77,7 @@ gulp.task('styles', function () {
 
 gulp.task('scripts', function () {
 	return gulp.src([
-		paths.scripts.src + 'vendors/jquery-1.11.0.min.js',
+		paths.scripts.src + 'vendors/jquery-1.11.3.min.js',
 		paths.scripts.src + 'vendors/bootstrap.min.js',
 		paths.scripts.src + '*.js'
 		])
