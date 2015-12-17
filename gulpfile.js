@@ -59,9 +59,7 @@ gulp.task('html', function () {
 });
 
 gulp.task('styles', function () {
-	return gulp.src([
-		paths.styles.src + '**/*.scss',
-	])
+	return gulp.src(paths.styles.src + '**/*.scss')
 	.pipe(gulpif(argv.dev, sourcemaps.init()))
 	.pipe(sass({errLogToConsole: true}))
 	.pipe(autoprefixer({
