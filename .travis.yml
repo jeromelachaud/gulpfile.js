@@ -1,8 +1,7 @@
 sudo: false
 language: node_js
 node_js:
-  - iojs
-  - '0.12'
-matrix:
-  allow_failures:
-    - node_js: iojs
+  - "5"
+before_script:
+  - npm install -g gulp
+script: gulp build --production
