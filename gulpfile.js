@@ -104,19 +104,23 @@ gulp.task('fonts', function() {
 	.pipe(size({title: 'fonts'}));
 });
 
-gulp.task('default', ['builder'], function() {
-	browserSync({
-		server: {
-			baseDir: basePaths.dest
-		}
-	});
-	gulp.watch(paths.styles.src + '**/*.scss', ['styles']);
-	gulp.watch(paths.scripts.src + '**/*.js', ['scripts', reload]);
-	gulp.watch(paths.images.src + '**/*.*', ['images', reload]);
-	gulp.watch(paths.fonts.src + '**/*', ['fonts', reload]);
-	gulp.watch(basePaths.src + '**/*.html', ['html', reload]);
+gulp.task('server', function() {
+  browserSync({
+    server: {
+      baseDir: basePaths.dest
+    }
+  });
+  gulp.watch(paths.styles.src + '**/*.scss', ['styles']);
+  gulp.watch(paths.scripts.src + '**/*.js', ['scripts', reload]);
+  gulp.watch(paths.images.src + '**/*.*', ['images', reload]);
+  gulp.watch(paths.fonts.src + '**/*', ['fonts', reload]);
+  gulp.watch(basePaths.src + '**/*.html', ['html', reload]);
 });
 
-gulp.task('builder', ['clean'], function (cb) {
-	runSequence(['html','styles', 'scripts', 'images', 'fonts'], cb);
+gulp.task('watch', ['clean'], function (cb) {
+  runSequence(['server','html','styles', 'scripts', 'images', 'fonts'], cb);
+});
+
+gulp.task('build', ['clean'], function (cb) {
+  runSequence(['html','styles', 'scripts', 'images', 'fonts'], cb);
 });
