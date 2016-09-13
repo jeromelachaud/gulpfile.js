@@ -1,4 +1,4 @@
-# microFramework [![Build Status][travis-image]][travis-url] [![Dependency Status]
+# microFramework [![Build Status][travis-image]][travis-url]
 Nothing fancy, just the basic stuff.
 
 Powered by Gulp
